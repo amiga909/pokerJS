@@ -1,0 +1,73 @@
+def cmp_suits(s1,s2)
+
+  if s1.to_s > s2.to_s
+    return 1
+  elsif s1.to_s == s2.to_s
+    return -1
+  else
+    return 0
+  end
+end
+
+
+data = {}
+counter = 0
+SUITS = ['s', 'c', 'h', 'd']
+VALUES = {"A" => 14, "K" => 13,"Q" => 12,"J" => 11,"T" => 10}
+File.open("starting_hands.txt", "r") do |infile|
+    while (line = infile.gets)
+        counter = counter + 1
+        next if counter == 1
+
+        row = line.split(/;/)
+        rank = row[0].strip
+        symbols = row[1].strip.split(//)
+        count = row[2].strip
+        value1 = VALUES[symbols[0]] ? VALUES[symbols[0]] : symbols[0]
+        value2 = VALUES[symbols[1]] ? VALUES[symbols[1]] : symbols[1]
+        suited = symbols[2] ? true : false
+
+        if(count.to_i == 6 && !suited)
+
+          SUITS.each{|s|
+            SUITS.each{|s1|
+              next if s == s1
+               suit1 =  cmp_suits(s,s1) != 0 ? s : s1
+              suit2 =  suit1 == s ? s1 : s
+              data["#{value1}#{suit1}#{value2}#{suit2}"] = rank
+            }
+          }
+          end
+          if(count.to_i == 4 && suited)
+          SUITS.each{|s|
+            SUITS.each{|s1|
+              next if s != s1
+              data["#{value1}#{s}#{value2}#{s1}"] = rank
+            }
+          }
+          end
+
+         if(count.to_i == 12 && !suited)
+         SUITS.each{|s|
+            SUITS.each{|s1|
+            next if s == s1
+              data["#{value1}#{s}#{value2}#{s1}"] = rank
+            }
+          }
+
+
+        end
+
+
+    end
+
+end
+str = ''
+data.sort
+data.sort_by{|d|d[1].to_i }.each{|d|
+ str += "'#{d[0]}':#{d[1].to_i},"
+}
+p data.length
+
+
+

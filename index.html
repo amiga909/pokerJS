@@ -1,0 +1,173 @@
+<html>
+<link href="core.css" media="screen" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="underscore-min.js"></script>
+<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="incl.js"></script>
+
+<script type="text/javascript" src="lib/config.js"></script>
+<script type="text/javascript" src="lib/poker_starthands.js"></script>
+<script type="text/javascript" src="lib/Rank.js"></script>
+<script type="text/javascript" src="lib/View.js"></script>
+<script type="text/javascript" src="lib/board.js"></script>
+<script type="text/javascript" src="lib/deck.js"></script>
+<script type="text/javascript" src="lib/game.js"></script>
+<script type="text/javascript" src="lib/player.js"></script>
+<script type="text/javascript" src="lib/npc.js"></script>
+<script type="text/javascript" src="lib/poker_evaluator.js"></script>
+<script type="text/javascript" src="main.js"></script>
+
+<body>
+<div id="game_container">
+
+        <div id="player">
+            <h1 id="p_name">Player</h1>
+            <button style="display:none;"
+                    id="btn_start" onclick="javascript:int=self.setInterval(function(){ gameLoop() },1000)">run
+            </button >
+            Stack: <span id="p_stack"></span> <br>
+            <button id="btn_fold">Fold</button>
+            <button id="btn_call">Call</button>
+            <button id="btn_raise">Raise</button>
+            <br/>
+
+            <div class="cards" id="player_cards">
+               <span id="p_card1" class="card">
+                  <div class="card_face front"><img src="img/back.png"/></div>
+                  <div class="card_face back"><span><img id="p_card1_img" src=""/> </span></div>
+               </span>
+               <span id="p_card2" class="card" style="margin-left: 80px;">
+                  <div class="front"><img src="img/back.png"/></div>
+                  <div class="back"><span><img id="p_card2_img" src=""/> </span></div>
+               </span>
+            </div>
+        </div>
+        <div id="npc">
+            <h1 id="n_name">CPU</h1>
+            Stack: <span id="n_stack"></span> <br>
+            <span id="n_action"></span>
+            <br/>
+
+            <div class="cards" id="npc_cards">
+               <span id="n_card1" class="card">
+                  <div class="front"><img src="img/back.png"/></div>
+                  <div class="back"><span><img id="n_card1_img" src=""/> </span></div>
+               </span>
+               <span id="n_card2" class="card" style="margin-left: 80px;">
+                  <div class="front"><img src="img/back.png"/></div>
+                  <div class="back"><span><img id="n_card2_img" src=""/> </span></div>
+               </span>
+            </div>
+
+        </div>
+        <div id="board">
+            Pot: <span id="g_pot"> </span> -
+            State: <span id="g_state"> </span> <br>
+            <div class="cards" id="board_cards">
+               <span id="b_card1" class="card">
+                  <div class="front"><img src="img/back.png"/></div>
+                  <div class="back"><span><img id="b_card1_img" src=""/> </span></div>
+               </span>
+               <span id="b_card2" class="card" style="margin-left: 80px;">
+                  <div class="front"><img src="img/back.png"/></div>
+                  <div class="back"><span><img id="b_card2_img" src=""/> </span></div>
+               </span>
+			   <span id="b_card3" class="card" style="margin-left: 160px;">
+                  <div class="front"><img src="img/back.png"/></div>
+                  <div class="back"><span><img id="b_card3_img" src=""/> </span></div>
+               </span>
+               <span id="b_card4" class="card" style="margin-left: 240px;">
+                  <div class="front"><img src="img/back.png"/></div>
+                  <div class="back"><span><img id="b_card4_img" src=""/> </span></div>
+               </span>
+			   <span id="b_card5" class="card" style="margin-left: 320px;">
+                  <div class="front"><img src="img/back.png"/></div>
+                  <div class="back"><span><img id="b_card5_img" src=""/> </span></div>
+               </span>
+            </div>
+        </div>
+
+
+</div>
+
+
+</body>
+</html>
+
+        <!--<table id="game_container_tbl">
+        <tr>
+            <td class="top_left">
+                <div id="player">
+                    <h1 id="p_name">Player</h1>
+                    <button
+                            id="btn_start" onclick="javascript:int=self.setInterval(function(){ gameLoop() },1000)">run
+                    </button>
+                    Stack: <span id="p_stack"></span> <br>
+                    <button id="btn_fold">Fold</button>
+                    <button id="btn_call">Call</button>
+                    <button id="btn_raise">Raise</button>
+                    <br/>
+
+                    <div class="cards" id="player_cards">
+               <span id="p_card1" class="card">
+                  <div class="card_face front"><img src="img/back.png"/></div>
+                  <div class="card_face back"><span><img id="p_card1_img" src=""/> </span></div>
+               </span>
+               <span id="p_card2" class="card" style="margin-left: 80px;">
+                  <div class="front"><img src="img/back.png"/></div>
+                  <div class="back"><span><img id="p_card2_img" src=""/> </span></div>
+               </span>
+                    </div>
+                </div>
+            </td>
+            <td class="top_right">
+                <div id="npc">
+                    <h1 id="n_name">CPU</h1>
+                    Stack: <span id="n_stack"></span> <br>
+                    <span id="n_action"></span>
+                    <br/>
+
+                    <div class="cards" id="npc_cards">
+               <span id="n_card1" class="card">
+                  <div class="front"><img src="img/back.png"/></div>
+                  <div class="back"><span><img id="n_card1_img" src=""/> </span></div>
+               </span>
+               <span id="n_card2" class="card" style="margin-left: 80px;">
+                  <div class="front"><img src="img/back.png"/></div>
+                  <div class="back"><span><img id="n_card2_img" src=""/> </span></div>
+               </span>
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="bottom">
+                <div id="board">
+                    <div class="cards" id="board_cards">
+               <span id="b_card1" class="card">
+                  <div class="front"><img src="img/back.png"/></div>
+                  <div class="back"><span><img id="b_card1_img" src=""/> </span></div>
+               </span>
+               <span id="b_card2" class="card" style="margin-left: 80px;">
+                  <div class="front"><img src="img/back.png"/></div>
+                  <div class="back"><span><img id="b_card2_img" src=""/> </span></div>
+               </span>
+			   <span id="b_card3" class="card" style="margin-left: 160px;">
+                  <div class="front"><img src="img/back.png"/></div>
+                  <div class="back"><span><img id="b_card3_img" src=""/> </span></div>
+               </span>
+               <span id="b_card4" class="card" style="margin-left: 240px;">
+                  <div class="front"><img src="img/back.png"/></div>
+                  <div class="back"><span><img id="b_card4_img" src=""/> </span></div>
+               </span>
+			   <span id="b_card5" class="card" style="margin-left: 320px;">
+                  <div class="front"><img src="img/back.png"/></div>
+                  <div class="back"><span><img id="b_card5_img" src=""/> </span></div>
+               </span>
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+
+    </table>  -->
