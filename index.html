@@ -19,33 +19,32 @@
 <script type="text/javascript" src="lib/game.js"></script>
 <script type="text/javascript" src="lib/player.js"></script>
 <script type="text/javascript" src="lib/npc.js"></script>
+<script type="text/javascript" src="lib/menu.js"></script>
 <script type="text/javascript" src="lib/poker_evaluator.js"></script>
-<script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="lib/main.js"></script>
 
 <body>
 <div id="game_container">
 
-        <div id="player">
-            <h1 id="p_name">Player</h1>
-            <button style="display:none;"
-                    id="btn_start" onclick="javascript:int=self.setInterval(function(){ gameLoop() },1000)">run
-            </button >
-            Stack: <span id="p_stack"></span> <br>
-            <button id="btn_fold">Fold</button>
-            <button id="btn_call">Call</button>
-            <button id="btn_raise">Raise</button>
+    <div id="player">
+        <h1 id="p_name">Player</h1>
+        <button style="display:none;"
+                id="btn_start" onclick="int=self.setInterval(function(){ gameLoop() },1000)">run
+        </button>
+        <div class="controls">
+        Stack: <span id="p_stack"></span> <br>
+        <button class="ios_btn" id="btn_fold">Fold</button>
+        <button class="ios_btn" id="btn_call">Call</button>
 
+        <button class="ios_btn" id="btn_raise">Raise</button>
+            <span id="btn_raise_txt"> </span>
+        <div id="slider-vertical"></div>
+        </div>
+        <span style="display:none;">
+             <div class="slider_tooltip" id="slider_tooltip"> 0 </div>
+        </span>
 
-            <p>
-                <label for="amount">Volume:</label>
-                <input type="text" id="amount" style="border: 0; color: #f6931f; font-weight: bold;" />
-            </p>
-            <div id="slider-vertical" style="height: 100px;"></div>
-
-
-            <br/>
-
-            <div class="cards" id="player_cards">
+        <div class="cards" id="player_cards">
                <span id="p_card1" class="card">
                   <div class="card_face front"><img src="img/back.png"/></div>
                   <div class="card_face back"><span><img id="p_card1_img" src=""/> </span></div>
@@ -54,15 +53,15 @@
                   <div class="front"><img src="img/back.png"/></div>
                   <div class="back"><span><img id="p_card2_img" src=""/> </span></div>
                </span>
-            </div>
         </div>
-        <div id="npc">
-            <h1 id="n_name">CPU</h1>
-            Stack: <span id="n_stack"></span> <br>
-            <span id="n_action"></span>
-            <br/>
+    </div>
+    <div id="npc">
+        <h1 id="n_name">CPU</h1>
+        Stack: <span id="n_stack"></span> <br>
+        <span id="n_action"></span>
+        <br/>
 
-            <div class="cards" id="npc_cards">
+        <div class="cards" id="npc_cards">
                <span id="n_card1" class="card">
                   <div class="front"><img src="img/back.png"/></div>
                   <div class="back"><span><img id="n_card1_img" src=""/> </span></div>
@@ -71,13 +70,14 @@
                   <div class="front"><img src="img/back.png"/></div>
                   <div class="back"><span><img id="n_card2_img" src=""/> </span></div>
                </span>
-            </div>
-
         </div>
-        <div id="board">
-            Pot: <span id="g_pot"> </span> -
-            State: <span id="g_state"> </span> <br>
-            <div class="cards" id="board_cards">
+
+    </div>
+    <div id="board">
+
+        Pot: <span id="g_pot"></span> -  <span id="g_state"> </span>   <br>
+
+        <div class="cards" id="board_cards">
                <span id="b_card1" class="card">
                   <div class="front"><img src="img/back.png"/></div>
                   <div class="back"><span><img id="b_card1_img" src=""/> </span></div>
@@ -98,25 +98,62 @@
                   <div class="front"><img src="img/back.png"/></div>
                   <div class="back"><span><img id="b_card5_img" src=""/> </span></div>
                </span>
+        </div>
+    </div>
+
+
+
+    <div id="menu">
+        <div id="menu_content">
+            <h2>PokerJS</h2>
+
+            <div class="menu_page menu_page1" id="init">
+                <fieldset>
+                    <label for="name">Name </label>
+                    <input id="player_name_input" type="text" placeholder="Please enter your name">
+                </fieldset>
+
+                <fieldset>
+                    <label for="name">Blinds </label>
+                    <select id="small_blind_select">
+                        <option value="10">20/10</option>
+                        <option value="20">40/20</option>
+                        <option value="40">80/40</option>
+                        <option value="80">160/80</option>
+                    </select>
+
+                    <label for="name">Stack </label>
+                    <select id="stack_select">
+                        <option value="100">100</option>
+                        <option value="1000">1000</option>
+                        <option value="2000">2000</option>
+                    </select>
+                </fieldset>
+                          <br>
+                <button class="ios_btn"  id="m_start">Start</button>
             </div>
+
+            <div class="menu_page menu_page2" id="winner" style="display: none;">
+                <span id="winner_win">You win! </span>
+                <span id="winner_loose" style="display: none;">You loose.</span>   <br><br>
+                <span id="menu_winner_name"></span> wins <span id="menu_winner_pot"></span>
+                <button class="ios_btn"  id="m_close">OK</button>
+            </div>
+            <div class="menu_page menu_page3" id="gameover" style="display: none;">
+                Game Over:
+                <span id="win">You win! </span>
+                <span id="loose">You loose.</span>
+            </div>
+
+        </div>
+        <div id="menu_overlay">
         </div>
 
+    </div>
 
 </div>
 <script>
-    $(function() {
-        $( "#slider-vertical" ).slider({
-            orientation: "vertical",
-            range: "min",
-            min: 0,
-            max: 100,
-            value: 30,
-            slide: function( event, ui ) {
-                $( "#amount" ).val( ui.value );
-            }
-        });
-        $( "#amount" ).val( $( "#slider-vertical" ).slider( "value" ) );
-    });
+
 </script>
 
 </body>
