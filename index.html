@@ -1,15 +1,18 @@
 <html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Poker JS</title>
+
+
 <link href="css/core.css" media="screen" rel="stylesheet" type="text/css"/>
 <link href="css/ui-lightness/jquery-ui-1.10.3.custom.min.css" media="screen" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="underscore-min.js"></script>
 <script type="text/javascript" src="jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="incl.js"></script>
-
 <script type="text/javascript" src="jquery.ui.touch-punch.min.js"></script>
-<script type="text/javascript" src="jquery-ui-1.10.3.custom.min.js"></script>
 <script type="text/javascript" src="jquery.flip.min.js"></script>
-
-
+<script type="text/javascript" src="jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="incl.js"></script>
 <script type="text/javascript" src="lib/config.js"></script>
 <script type="text/javascript" src="lib/poker_starthands.js"></script>
 <script type="text/javascript" src="lib/Rank.js"></script>
@@ -23,6 +26,7 @@
 <script type="text/javascript" src="lib/poker_evaluator.js"></script>
 <script type="text/javascript" src="lib/main.js"></script>
 
+</head>
 <body>
 <div id="game_container">
 
@@ -130,7 +134,7 @@
                     </select>
                 </fieldset>
                           <br>
-                <button class="ios_btn"  id="m_start">Start</button>
+                <button class="ios_btn"  id="m_start" disabled="disabled" >Start</button>
             </div>
 
             <div class="menu_page menu_page2" id="winner" style="display: none;">
