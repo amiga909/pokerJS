@@ -164,8 +164,10 @@ body {
     padding: 25px;
     border: 2px solid black;
     background-color: #ffffff;
-    width: 40%;
-    height: 40%;
+    width: 25%;
+    height: 25%;
+    min-height: 200px;
+    min-width: 300px;
     z-index: 100;
 }
 

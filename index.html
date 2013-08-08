@@ -5,8 +5,10 @@
     <title>Poker JS</title>
 
 
-<link href="css/core.css" media="screen" rel="stylesheet" type="text/css"/>
+
 <link href="css/ui-lightness/jquery-ui-1.10.3.custom.min.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="css/core.css" media="screen" rel="stylesheet" type="text/css"/>
+
 <script type="text/javascript" src="underscore-min.js"></script>
 <script type="text/javascript" src="jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="jquery.ui.touch-punch.min.js"></script>
@@ -140,13 +142,18 @@
             <div class="menu_page menu_page2" id="winner" style="display: none;">
                 <span id="winner_win">You win! </span>
                 <span id="winner_loose" style="display: none;">You loose.</span>   <br><br>
-                <span id="menu_winner_name"></span> wins <span id="menu_winner_pot"></span> <span id="menu_winner_hand"></span>
+                <span id="menu_winner_name"></span> wins <span id="menu_winner_pot"></span> <span id="menu_winner_hand"></span>  <br>
+                Blinds: <span id="menu_winner_blinds"></span>
+
                 <button class="ios_btn"  id="m_close">OK</button>
+
             </div>
             <div class="menu_page menu_page3" id="gameover" style="display: none;">
                 Game Over:
-                <span id="win">You win! </span>
-                <span id="loose">You loose.</span>
+                <span id="gameover_win">You win! </span>
+                <span id="gameover_loose">You loose.</span>
+
+                <button class="ios_btn"  id="m_close">Play again</button>
             </div>
 
         </div>
