@@ -5,30 +5,29 @@
     <title>Poker JS</title>
 
 
-
-<link href="css/ui-lightness/jquery-ui-1.10.3.custom.min.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="css/ui-lightness/jquery-ui-1.10.3.custom.min.css" media="screen" rel="stylesheet" type="text/css"/>
     <link href="css/core.css" media="screen" rel="stylesheet" type="text/css"/>
 
-<script type="text/javascript" src="underscore-min.js"></script>
-<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="jquery.ui.touch-punch.min.js"></script>
-<script type="text/javascript" src="jquery.flip.min.js"></script>
-<script type="text/javascript" src="jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="underscore-min.js"></script>
+    <script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="jquery.flip.min.js"></script>
+    <script type="text/javascript" src="jquery-ui-1.10.3.custom.min.js"></script>
 
 
-<script type="text/javascript" src="incl.js"></script>
-<script type="text/javascript" src="lib/config.js"></script>
-<script type="text/javascript" src="lib/poker_starthands.js"></script>
-<script type="text/javascript" src="lib/Rank.js"></script>
-<script type="text/javascript" src="lib/View.js"></script>
-<script type="text/javascript" src="lib/board.js"></script>
-<script type="text/javascript" src="lib/deck.js"></script>
-<script type="text/javascript" src="lib/game.js"></script>
-<script type="text/javascript" src="lib/player.js"></script>
-<script type="text/javascript" src="lib/npc.js"></script>
-<script type="text/javascript" src="lib/menu.js"></script>
-<script type="text/javascript" src="lib/poker_evaluator.js"></script>
-<script type="text/javascript" src="lib/main.js"></script>
+    <script type="text/javascript" src="incl.js"></script>
+    <script type="text/javascript" src="lib/config.js"></script>
+    <script type="text/javascript" src="lib/poker_starthands.js"></script>
+    <script type="text/javascript" src="lib/Rank.js"></script>
+    <script type="text/javascript" src="lib/View.js"></script>
+    <script type="text/javascript" src="lib/board.js"></script>
+    <script type="text/javascript" src="lib/deck.js"></script>
+    <script type="text/javascript" src="lib/game.js"></script>
+    <script type="text/javascript" src="lib/player.js"></script>
+    <script type="text/javascript" src="lib/npc.js"></script>
+    <script type="text/javascript" src="lib/menu.js"></script>
+    <script type="text/javascript" src="lib/poker_evaluator.js"></script>
+    <script type="text/javascript" src="lib/main.js"></script>
 
 </head>
 <body>
@@ -40,16 +39,17 @@
                 id="btn_start" onclick="int=self.setInterval(function(){ gameLoop() },1000)">run
         </button>
         <div class="controls">
-        Stack: <span id="p_stack"></span> <br>
-        <button class="ios_btn" id="btn_fold">Fold</button>
-        <button class="ios_btn" id="btn_call">Call</button>
+            Stack: <span id="p_stack"></span> <br>
+            <button class="ios_btn" id="btn_fold">Fold</button>
+            <button class="ios_btn" id="btn_call">Call</button>
 
-        <button class="ios_btn" id="btn_raise">Raise</button>
+            <button class="ios_btn" id="btn_raise">Raise</button>
             <span id="btn_raise_txt"> </span>
-        <div id="slider-vertical"></div>
+
+            <div id="slider-vertical"></div>
         </div>
         <span style="display:none;">
-             <div class="slider_tooltip" id="slider_tooltip"> 0 </div>
+             <div class="slider_tooltip" id="slider_tooltip"> 0</div>
         </span>
 
         <div class="cards" id="player_cards">
@@ -83,7 +83,7 @@
     </div>
     <div id="board">
 
-        Pot: <span id="g_pot"></span> -  <span id="g_state"> </span>   <br>
+        Pot: <span id="g_pot"></span> - <span id="g_state"> </span> <br>
 
         <div class="cards" id="board_cards">
                <span id="b_card1" class="card">
@@ -108,7 +108,6 @@
                </span>
         </div>
     </div>
-
 
 
     <div id="menu">
@@ -137,17 +136,18 @@
                         <option value="2000">2000</option>
                     </select>
                 </fieldset>
-                          <br>
-                <button class="ios_btn"  id="m_start" disabled="disabled" >Start</button>
+                <br>
+                <button class="ios_btn" id="m_start" disabled="disabled">Start</button>
             </div>
 
             <div class="menu_page menu_page2" id="winner" style="display: none;">
                 <span id="winner_win">You win! </span>
-                <span id="winner_loose" style="display: none;">You loose.</span>   <br><br>
-                <span id="menu_winner_name"></span> wins <span id="menu_winner_pot"></span> <span id="menu_winner_hand"></span>  <br>
+                <span id="winner_loose" style="display: none;">You loose.</span> <br><br>
+                <span id="menu_winner_name"></span> wins <span id="menu_winner_pot"></span> <span
+                    id="menu_winner_hand"></span> <br>
                 Blinds: <span id="menu_winner_blinds"></span>
 
-                <button class="ios_btn"  id="m_close">OK</button>
+                <button class="ios_btn" id="m_close">OK</button>
 
             </div>
             <div class="menu_page menu_page3" id="gameover" style="display: none;">
@@ -155,7 +155,7 @@
                 <span id="gameover_win">You win! </span>
                 <span id="gameover_loose">You loose.</span>
 
-                <button class="ios_btn"  id="m_close">Play again</button>
+                <button class="ios_btn" id="m_close">Play again</button>
             </div>
 
         </div>
