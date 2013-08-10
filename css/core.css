@@ -154,7 +154,12 @@ body {
 }
 
 #menu {
+    z-index: 91;
     display: none; /* ensures it’s invisible until it’s called */
+    -moz-opacity: 0.9; /* makes the div transparent, so you have a cool overlay effect */
+    opacity: .90;
+    filter: alpha(opacity=90);
+    filter: alpha(opacity=90);
 }
 
 #menu_content {
@@ -164,14 +169,13 @@ body {
     padding: 25px;
     border: 2px solid black;
     background-color: #ffffff;
-    width: 25%;
-    height: 25%;
-    min-height: 200px;
-    min-width: 300px;
+    width: 40%;
+    height: 40%;
     z-index: 100;
 }
 
 #menu_overlay {
+
     position: absolute; /* makes the div go into a position that’s absolute to the browser viewing area */
     left: 0%; /* makes the div span all the way across the viewing area */
     top: 0%; /* makes the div span all the way across the viewing area */
@@ -182,6 +186,9 @@ body {
     width: 100%;
     height: 100%;
     z-index: 90;
+}
+.ui-slider-handle{
+    z-index: 1 !important;
 }
 
 
@@ -249,22 +256,22 @@ button:disabled:hover {
 }
 
 #menu #init #m_start  {
-     font-size: 16px;
-     min-width: 60px;
-     max-width: 140px;
-     position: absolute;
-     left: 80%;
-     top: 80%;
- }
+    font-size: 16px;
+    min-width: 60px;
+    max-width: 140px;
+    position: absolute;
+    left: 80%;
+    top: 80%;
+}
 
 #menu   #m_close  {
     float: right;
     font-size: 16px;
     min-width: 60px;
     max-width: 140px;
-    //position: absolute;
-    //left: 80%;
-    //top: 80%;
+//position: absolute;
+//left: 80%;
+//top: 80%;
 }
 
 #menu_content {
