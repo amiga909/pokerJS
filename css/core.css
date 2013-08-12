@@ -6,12 +6,11 @@ body {
 }
 
 #game_container {
-/ / background-image : url ( '../table_e.png' );
+/* background-image : url ( '../table_e.png' ); */
     background-repeat: no-repeat;
     background-position: -90 -155;
     height: 800px;
     left: 40px;
-
 }
 
 #player {
@@ -73,7 +72,6 @@ body {
     position: absolute;
     top: -25;
     left: -10;
-
 }
 
 .cards {
@@ -112,11 +110,11 @@ body {
 }
 
 .flipped .front {
-/ / display : none;
+/* display : none;  */
 }
 
 .front {
-/ / display : inline;
+/* display : inline;   */
     position: absolute;
 }
 
@@ -184,7 +182,6 @@ body {
     z-index: 90;
 }
 
-
 .ios_btn {
     width: auto;
     min-width: 40px;
@@ -193,7 +190,6 @@ body {
     margin: 0;
     padding: 0 5px;
     overflow: hidden;
-
     line-height: 30px;
     font-family: inherit;
     font-size: 12px;
@@ -203,7 +199,6 @@ body {
     text-decoration: none;
     text-align: center;
     white-space: nowrap;
-
     color: #fff;
     background: none;
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #8ea4c1), color-stop(0.5, #5877a2), color-stop(0.5, #476999), color-stop(1, #4a6c9b));
@@ -220,7 +215,6 @@ body {
     margin: 0;
     padding: 0 5px;
     overflow: hidden;
-
     line-height: 30px;
     font-family: inherit;
     font-size: 12px;
@@ -230,7 +224,6 @@ body {
     text-decoration: none;
     text-align: center;
     white-space: nowrap;
-
     color: #fff;
     background: none;
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #7d88a5), color-stop(0.5, #3a4e78), color-stop(0.5, #273f6d), color-stop(1, #273f6d));
